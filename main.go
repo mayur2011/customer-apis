@@ -1,12 +1,23 @@
 package main
 
 import (
-"net/http"
-"fmt"
+	"fmt"
+	//"gobase/assignment03/router"
+	"net/http"
+	"os"
 )
 
 func main() {
+	//router := router.InitRoutes()
 
-http.ListenAndServe(":8087",nil)
-fmt.Println("listening on port 8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8000"
+	}
+	fmt.Println("Launching the app, visit localhost:8000/")
+	//err := http.ListenAndServe(":"+port, router)
+	err := http.ListenAndServe(":"+port, nil)
+	if err != nil {
+		fmt.Print(err)
+	}
 }
