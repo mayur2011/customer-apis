@@ -6,6 +6,7 @@ import (
 	"github.com/mayur2011/customer-apis/domain"
 )
 
+//Structure defination
 type MapStore struct {
 	store map[string]domain.Customer
 }
